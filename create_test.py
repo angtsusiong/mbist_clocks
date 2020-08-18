@@ -9,11 +9,15 @@ if __name__ == '__main__':
     csv_file = open(csv_file, 'r').read().splitlines()
     outfile = open(test_file, 'w')
 
+    clock_path_list = []
+
     for line in csv_file:
         clock_path = (line.split(',')[0])
-        clock_path = clock_path.replace('/', '.')
-        # print(clock_path)
-        outfile.write('def_hwp PIXCK_CLK of bit = "' + clock_path + '";\n')
+        if 'Memory clock pin' not in clock_path:
+            clock_path_list.append(clock_path.replace('/', '.'))
+
+    for path in clock_path_list:
+        outfile.write('def_hwp PIXCK_CLK of bit = "' + path + '";\n')
 
 
 
