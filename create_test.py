@@ -1,7 +1,6 @@
 
 
 if __name__ == '__main__':
-    print('PyCharm')
 
     csv_file = 'mbist_clks.csv'
     test_file = 'dft_mbist_clks.e'
